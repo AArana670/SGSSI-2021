@@ -1,7 +1,7 @@
-const btn=Document.getElementById("btnPrueba");
-const txt=Document.getElementById("txtPrueba");
+const btn=document.getElementById("btnPrueba");
+const txt=document.getElementById("txtPrueba");
 
-Function clearText(){
-	console.log("clicao");
+function addMonki(){
+	console.log("añadío");
 	txt.value=""
 }

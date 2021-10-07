@@ -1,10 +1,21 @@
-html{
+button {
+    width: 6em;
+    height: 4em;
+    font-size: 1.2em;
+    border: none;
+    background-color: #2962ff;
+    color: white;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    border-radius: 0.2em;
+    outline: none;
+    transition: all 100ms ease-in;
+    position:relative;
+    align-self:end;
 }
 
-.addDiv {
-	display: flex;
-}
-
-h4{
-	color: red;
-}
+    button:active,
+    button:hover {
+        background-color: #5784ff;
+    }
