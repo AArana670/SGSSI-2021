@@ -3,5 +3,5 @@ const txt=document.getElementById("txtPrueba");
 
 function addMonki(){
 	console.log("añadío");
-	txt.value=""
+	//txt.value=""
 }
