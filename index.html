@@ -1,30 +1,35 @@
 <html lang="es">
 <head>
-<title>OwO</title>
-<link rel="stylesheet" href="./style.css">
-<script src="script.js"></script>
+	<meta charset="UTF-8">
+	<title>OwO</title>
+	<link rel="stylesheet" href="./style.css">
+	<script src="scriptAddMonke.js"></script>
 </head>
 <body>
-
-<h2 class="titulo">Añade un monki</h2>
-<div id="divAñadir" class="addDiv">
-
-<h4>nombre</h4>
-<input type="text" id="txtNom">
-<h4>raza</h4>
-<input type="text" id="txtRaza">
-<h4>sexo</h4>
-<input type="radio" id="rbtnM" name="rbtnSexo">
-<input type="radio" id="rbtnH" name="rbtnSexo">
-<h4>¿es peligroso?</h4>
-<input type="radio" id="rbtnDan" name="rbtnDanger">
-<input type="radio" id="rbtnDan't" name="rbtnDanger">
-<br>
-<button onclick="addMonki()" id="btnAddMonki">Añadir monki</button>
-
-</div>
-
-
-
+	
+	<h2 class="titulo">Añade un monke</h2>
+	<div id="avisos">
+		
+	</div>
+	<div id="divAñadir" class="addDiv">
+		
+		<h4>nombre</h4>
+		<input type="text" id="txtNom">
+		<h4>raza</h4>
+		<input type="text" id="txtRaza">
+		<h4>sexo</h4>
+		<input type="radio" id="rbtnM" name="rbtnSexo" checked>
+		<input type="radio" id="rbtnH" name="rbtnSexo">
+		<h4>¿es peligroso?</h4>
+		<input type="radio" id="rbtnDan" name="rbtnDanger" checked>
+		<input type="radio" id="rbtnDan't" name="rbtnDanger">
+		<br>
+		<br>
+		<button onclick="addMonke()" id="btnAddMonke">Añadir monke</button>
+		
+	</div>
+	
+	
+	
 </body>
 </html>
