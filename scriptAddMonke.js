@@ -9,8 +9,10 @@ function addMonke(){
 	else{
 		if (raza=="")
 			crearAviso("Por favor, introduzca la raza");
-		else
+		else{
 			crearAviso(nom+" se ha añadido a la base de datos");
+			console.log("nombre: "+nom+", raza: "+raza+", macho: "+macho+", peligroso: "+peligro);
+		}
 	}
 }
 

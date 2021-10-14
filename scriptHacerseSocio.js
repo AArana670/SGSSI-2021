@@ -15,8 +15,8 @@ function addSocio(){
 		console.log("Hay que rellenar el todos los campos");
 	}
 	else{
-		//if(document.getElementById(txtDni).value.match(expresiones.dni)){
-		//	console.log("ES CORRECTO EL DNI");
+		if(checkDNI(document.getElementById("txtDni").value)){
+			console.log("ES CORRECTO EL DNI");
 			if(document.getElementById("txtNomApell").value.match(expresiones.nombre)){
 				console.log("ES CORRECTO EL NOMBRE");
 				if(document.getElementById("txtTel").value.match(expresiones.telefono)){
@@ -40,13 +40,22 @@ function addSocio(){
 					}				
 				}
 			}
-		//
-		
+		}
 	}
-	}
-	
-	
-		
+}
 
-	
-	
+function checkDNI(dni){	
+		if (!dni.includes("-"))
+			return false;
+		partes=dni.split("-");
+		console.log(partes[0]+" | "+partes[0].length+" | "+parseInt(partes[0]));
+		if(partes[0].length!=8||isNaN(parseInt(partes[0])))
+			return false;
+		sum=parseInt(partes[0])%23;
+		console.log(sum);
+		letras=["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+		console.log(letras[sum]);
+		if (letras[sum]==partes[1])
+			return true;
+		return false;
+}
