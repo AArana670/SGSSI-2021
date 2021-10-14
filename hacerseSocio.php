@@ -22,21 +22,37 @@
 
 <h1>Hazte socio</h1>
 <h4>DNI</h4>
-<input type="text" id="txtDNI">
+<input type="text" name="txtDni" id="txtDni">
 <h4>Nombre y apellido</h4>
-<input type="text" id="txtNomApell">
+<input type="text" name="txtNomApell" id="txtNomApell">
 <h4>Teléfono</h4>
-<input type="text" id="txtTel">
+<input type="text" name="txtTel" id="txtTel">
 <h4>Fecha de nacimiento</h4>
-<input type="date" id="txtFechaNac">
+<input type="date" name="txtFechaNac" id="txtFechaNac">
 <h4>Email</h4>
-<input type="text" id="txtEmail">
+<input type="text" name="txtEmail" id="txtEmail">
 <h4>Usuario</h4>
-<input type="text" id="txtUsuario">
+<input type="text" name="txtUsuario" id="txtUsuario">
 <h4>Contraseña</h4>
-<input type="text" id="txtContr">
-<br> 
-<br> 
+<input type="text" name="txtContr" id="txtContr">
+
+<br>
+<br>
 <button onclick="addSocio()" id="btnAddSocio">Convertirse en socio</button>
+<?php
+if (isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GET["w4"]) && isset($_GET["w5"]) && isset($_GET["w6"]) && isset($_GET["w7"])) {
+    $phpVar2 = $_GET["w2"];
+    $phpVar3 = $_GET["w3"];
+    $phpVar4 = $_GET["w4"];
+    $phpVar5 = $_GET["w5"];
+    $phpVar6 = $_GET["w6"];
+    $phpVar7 = $_GET["w7"];
+    echo "Todo guay";
+    include("registrar.php");
+  
+} else {
+    echo "<p>No parameters</p>";
+}
+?>
 </body>
-</html> 
+</html>
