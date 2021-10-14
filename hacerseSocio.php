@@ -21,6 +21,10 @@
 </header>
 
 <h1>Hazte socio</h1>
+<div id="avisos">
+		
+</div>
+
 <h4>DNI</h4>
 <input type="text" name="txtDni" id="txtDni">
 <h4>Nombre y apellido</h4>
@@ -34,7 +38,7 @@
 <h4>Usuario</h4>
 <input type="text" name="txtUsuario" id="txtUsuario">
 <h4>Contraseña</h4>
-<input type="text" name="txtContr" id="txtContr">
+<input type="password" name="txtContr" id="txtContr">
 
 <br>
 <br>

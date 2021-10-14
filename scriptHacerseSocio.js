@@ -10,23 +10,29 @@ const expresiones ={
 
 
 function addSocio(){
-	//console.log(document.getElementById("txtDni").value );
-	if(document.getElementById("txtDni").value === "" || document.getElementById("txtNomApell").value === "" || document.getElementById("txtTel").value === "" || document.getElementById("txtEmail").value === "" || document.getElementById("txtNomApell").value === "" || document.getElementById("txtUsuario").value === "" || document.getElementById("txtContr").value === ""){
-		console.log("Hay que rellenar el todos los campos");
+	if(document.getElementById("txtDni").value == "" || document.getElementById("txtNomApell").value == "" || document.getElementById("txtTel").value == "" || document.getElementById("txtEmail").value == "" || document.getElementById("txtNomApell").value == "" || document.getElementById("txtUsuario").value == "" || document.getElementById("txtContr").value == ""){
+		crearAviso("Hay que rellenar todos los campos");
 	}
 	else{
-		if(checkDNI(document.getElementById("txtDni").value)){
-			console.log("ES CORRECTO EL DNI");
-			if(document.getElementById("txtNomApell").value.match(expresiones.nombre)){
-				console.log("ES CORRECTO EL NOMBRE");
-				if(document.getElementById("txtTel").value.match(expresiones.telefono)){
-					console.log("ES CORRECTO EL TELEFONO");
-					if(document.getElementById("txtEmail").value.match(expresiones.email)){
-						console.log("ES CORRECTO EL EMAIL");
-						if(document.getElementById("txtUsuario").value.match(expresiones.usuario)){
-							console.log("ES CORRECTO EL USUARIO");
-							if(document.getElementById("txtContr").value.match(expresiones.contrasena)){
-								console.log("ES CORRECTO LA CONTRASENA");
+		if(!checkDNI(document.getElementById("txtDni").value))
+			crearAviso("El DNI no es válido, debe seguir el formato '11111111-A'");
+		else{
+			if(!document.getElementById("txtNomApell").value.match(expresiones.nombre))
+				crearAviso("El nombre no es válido");
+			else{
+				if(!document.getElementById("txtTel").value.match(expresiones.telefono))
+					crearAviso("El teléfono no es válido");
+				else{
+					if(!document.getElementById("txtEmail").value.match(expresiones.email))
+						crearAviso("El correo no es válido");
+					else{
+						if(!document.getElementById("txtUsuario").value.match(expresiones.usuario))
+							crearAviso("El nombre de usuario no es válido");
+						else{
+							if(!document.getElementById("txtContr").value.match(expresiones.contrasena))
+								crearAviso("La contraseña no es válida");
+							else{
+								crearAviso("Todos los datos introducidos son correctos");
 								var txtDNI=document.getElementById("txtDni").value;
 								var txtNomApell=document.getElementById("txtNomApell").value;
 								var txtTel=document.getElementById("txtTel").value;
@@ -48,14 +54,23 @@ function checkDNI(dni){
 		if (!dni.includes("-"))
 			return false;
 		partes=dni.split("-");
-		console.log(partes[0]+" | "+partes[0].length+" | "+parseInt(partes[0]));
 		if(partes[0].length!=8||isNaN(parseInt(partes[0])))
 			return false;
 		sum=parseInt(partes[0])%23;
-		console.log(sum);
 		letras=["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
-		console.log(letras[sum]);
 		if (letras[sum]==partes[1])
 			return true;
 		return false;
+}
+
+function crearAviso(msg){
+	divAviso=document.getElementById("avisos");
+	aviso=document.getElementById("aviso");
+	if (aviso!=null)
+		divAviso.removeChild(aviso);
+	aviso=document.createElement("H5");
+	aviso.textContent=msg;
+	aviso.className="aviso";
+	aviso.id="aviso";
+	divAviso.appendChild(aviso);
 }
