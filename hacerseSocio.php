@@ -3,19 +3,19 @@
 <head>
 	<meta charset="UTF-8">
   <title>MONKEISLAND-HACERSE SOCIO</title>
-  <link rel="stylesheet" href="styleHacerseSocio.css">
+  <link rel="stylesheet" href="style.css">
   <script src="scriptHacerseSocio.js"></script>
 </head>
 <body>
- <header>
+<header>
   <div>
   <img src="https://see.fontimg.com/api/renderfont4/M72w/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjRkVGRUZFIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/bW9ua2UgaXNhbG5k/hanalei-fill.png"></a>
 	</div>
 	<nav>
 		<ul>
 			<li><a href="#">Página principal</a></li>
-			<li><a href="#">Nuestros monkes</a></li>
-			<li><a href="#">Hazte socio</a></li>
+			<li><a href="index.html">Nuestros monkes</a></li>
+			<li><a href="hacerseSocio.php">Hazte socio</a></li>
 		</ul>
 	</nav>
 </header>
