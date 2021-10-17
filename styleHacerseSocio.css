@@ -24,10 +24,47 @@ header nav ul li{
 	float:left;
 	font-family: "Lucida Console", "Courier New", monospace;
 }
+table {
+    width:50%;
+    border: 1px solid #000;
+    font-family:  "Lintel", "Helvetica", "Arial", "sans-serif";
+    color: white;
+    font-size: 30px;
+    text-align:center;
+    border-collapse:collapse;
+    border: black 2px solid;
+    margin: 15px;
+    padding: 15px;
+}
+
+table tr:nth-child(1) {
+	color: #fff;
+	background-color: #0A6124;
+}
+
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 2px solid #000;
+   border-spacing: 0;
+   padding: 0.3em;
+}
+
+th{
+   background: #eee;
+}
+
+caption {
+   padding: 0.3em;
+   color: #fff;
+   background: #000;
+}
+
 header nav ul li a{
-	font-family:  "Lintel", "Helvetica", "Arial", "sans-serif";
-    color:rgb(255, 255, 255);
-    font-size: 30px; 
+	font-family:  "Lintel", "Helvetica", "Arial", monospace;
+    	color:rgb(255, 255, 255);
+   	font-size: 30px; 
 	padding:20px;
 	display:block,
 	background-color:  rgb(255, 255, 255);
@@ -35,7 +72,7 @@ header nav ul li a{
 }
 h1 {
 	font-family: "Lucida Console", "Courier New", monospace;
-  color: white;
+  	color: white;
 }
 h4 {
 	font-family: "Lintel", "Helvetica", "Arial", "sans-serif";

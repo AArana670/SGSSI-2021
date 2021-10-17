@@ -44,19 +44,31 @@
 <br>
 <button onclick="addSocio()" id="btnAddSocio">Convertirse en socio</button>
 <?php
-if (isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GET["w4"]) && isset($_GET["w5"]) && isset($_GET["w6"]) && isset($_GET["w7"])) {
-    $phpVar2 = $_GET["w2"];
-    $phpVar3 = $_GET["w3"];
-    $phpVar4 = $_GET["w4"];
-    $phpVar5 = $_GET["w5"];
-    $phpVar6 = $_GET["w6"];
-    $phpVar7 = $_GET["w7"];
-    echo "Todo guay";
-    include("registrar.php");
+if (isset($_GET["w1"]) && isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GET["w4"]) && isset($_GET["w5"]) && isset($_GET["w6"]) && isset($_GET["w7"])) {
+    $dni=$_GET["w1"];
+    $nombre = $_GET["w2"];
+    $tel = $_GET["w3"];
+    $fecha = $_GET["w4"];
+    $email = $_GET["w5"];
+    $usuario = $_GET["w6"];
+    $password = $_GET["w7"];
+    $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
+    if(!$con){
+    	die("La conexión ha fallado: " . mysqli_connect_error());
+    }
+    $consulta="INSERT INTO SOCIO(DNI, NOMBRE, TELEFONO, FECHANAC, EMAIL, USUARIO, CONTRASENA) VALUES ('$dni','$nombre','$tel','$fecha','$email','$usuario','$password')";
+    mysqli_query($con, $consulta);
+    mysqli_close($con); 
+	
+	 /*  unset($_GET['w2']);
+    unset($_GET['w3']);
+    unset($_GET['w4']);
+    unset($_GET['w5']);
+    unset($_GET['w6']);
+    unset($_GET['w7']);
+*/
   
-} else {
-    echo "<p>No parameters</p>";
-}
+} 
 ?>
 </body>
 </html>
