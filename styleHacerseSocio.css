@@ -24,6 +24,7 @@ header nav ul li{
 	float:left;
 	font-family: "Lucida Console", "Courier New", monospace;
 }
+
 table {
     width:50%;
     border: 1px solid #000;
@@ -43,6 +44,7 @@ table tr:nth-child(1) {
 }
 
 th, td {
+
    width: 25%;
    text-align: left;
    vertical-align: top;
@@ -54,7 +56,6 @@ th, td {
 th{
    background: #eee;
 }
-
 caption {
    padding: 0.3em;
    color: #fff;
@@ -70,11 +71,18 @@ header nav ul li a{
 	background-color:  rgb(255, 255, 255);
 	text-decoration:none;
 }
+input{
+	text-align: center ;
+}
 h1 {
+	
+	text-align: center ;
 	font-family: "Lucida Console", "Courier New", monospace;
   	color: white;
 }
 h4 {
+	text-align: center ;
 	font-family: "Lintel", "Helvetica", "Arial", "sans-serif";
-  color: white;
+  	color: white;
+
 }

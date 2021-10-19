@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-  <title>MONKEISLAND-HACERSE SOCIO</title>
+  <title>MONKEISLAND-MOSTRAR MONKES</title>
   <link rel="stylesheet" href="styleHacerseSocio.css">
 </head>
 <body>
@@ -19,9 +19,10 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a href="#">Página principal</a></li>
-			<li><a href="#">Nuestros monkes</a></li>
-			<li><a href="#">Hazte socio</a></li>
+			<li><a href="paginaPrincipal.html">Página principal</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="hsocio.php">Hazte socio</a></li>
+			<li><a href="login.php">Iniciar sesión</a></li>
 		</ul>
 	</nav>
 </header>
