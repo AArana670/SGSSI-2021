@@ -31,13 +31,13 @@
 		<input type="text" id="txtRaza">
 		<h4>sexo</h4>
 		<select name="sexo" id="drpSexo">
-			<option value="m">M</option>
-			<option value="h">H</option>
+			<option value="M">M</option>
+			<option value="H">H</option>
 		</select>
 		<h4>¿es peligroso?</h4>
 		<select name="peligro" id="drpPeligro">
-			<option value="si">Sí</option>
-			<option value="no">No</option>
+			<option value="1">Sí</option>
+			<option value="0">No</option>
 		</select>
 		<br>
 		<br>
@@ -51,7 +51,7 @@ if (isset($_GET["w1"]) && isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GE
     $nombre = $_GET["w2"];
     $raza = $_GET["w3"];
     $sexo = $_GET["w4"];
-	$peligro = $_GET["w5"];
+    $peligro = $_GET["w5"];
     $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
