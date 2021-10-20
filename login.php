@@ -21,7 +21,7 @@
 	</nav>
 </header>
 
-<form method="POST">
+<form method="post">
 <input type="text" name="txtUsuarioLogin" id="txtUsuarioLogin">
 <br>
 <br>
