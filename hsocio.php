@@ -30,7 +30,6 @@
 	<div id="avisos"> </div>
 	<h4>Nombre y apellido</h4>	
 	<input type="text" name="nomApell" id="nomApell">
-
 	<h4>DNI</h4>
 	<input type="text" name="dni" id="dni">
 	<h4>Fecha de nacimiento</h4>
@@ -48,9 +47,9 @@
 	<button onclick="addSocio()" id="btnAddSocio">Convertirse en socio</button>
 	
 	<?php
-		if (isset($_GET["w1"]) && isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GET["w4"]) && isset($_GET["w6"]) && isset($_GET["w7"])) {
-		$dni=$_GET["w2"];
-   		$nombre = $_GET["w1"];
+		if (isset($_GET["w1"]) && isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GET["w4"]) && isset($_GET["w5"]) && isset($_GET["w6"]) && isset($_GET["w7"])) {
+		$dni=$_GET["w1"];
+   		$nombre = $_GET["w2"];
     		$tel = $_GET["w3"];
     		$fecha = $_GET["w4"];
     		$email = $_GET["w5"];

@@ -32,13 +32,14 @@ function addSocio(){
 							else{
 								crearAviso("Todos los datos introducidos son correctos");
 								var txtDNI=document.getElementById("dni").value;
+								console.log()
 								var txtNomApell=document.getElementById("nomApell").value;
 								var txtTel=document.getElementById("tel").value;
-								var fechNac= document.getElementById("fechaNac").value.toString();
+								var txtfechNac= document.getElementById("fechaNac").value.toString();
 								var txtEmail=document.getElementById("email").value;
 								var txtUsuario=document.getElementById("usuario").value;
 								var txtContr=document.getElementById("contr").value;
-								window.location.href = window.location.href + "?w1=" + txtDni + "?w2=" + txtNomApell + "?w3=" + txtTel + "?w4=" + fechNac + "?w5=" + txtEmail + "?w6=" + txtUsuario + "?w7=" + txtContr;
+								window.location.href = window.location.href + "?w1=" + txtDNI + "&w2=" + txtNomApell + "&w3=" + txtTel + "&w4=" + txtfechNac + "&w5=" + txtEmail + "&w6=" + txtUsuario + "&w7=" + txtContr;
 							}
 						}
 					}				
