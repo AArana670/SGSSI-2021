@@ -22,17 +22,14 @@
 		</div>
 		<nav>
 		<ul>
-			<li><a href="paginaPrincipal.html">Página principal</a></li>
+			<li><a href="index.html">Página principal</a></li>
 			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
 			<li><a href="hsocio.php">Hazte socio</a></li>
 			<li><a href="login.php">Iniciar sesión</a></li>
 		</ul>
 	</nav>
 	</header>
-		<h4>Id del monke</h4>
-	<input type="text" id="txtId">
-	<button onclick="buscaMonke()" id="btnBuscar">Buscar</button>
-	
+		<h4><a href="mostrarMonkes.php">Volver a la lista de monkes</a></h4>
 	<table>
 		<tr>
 			<td>Nombre</td>

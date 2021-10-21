@@ -13,14 +13,16 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a href="paginaPrincipal.html">Página principal</a></li>
+			<li><a href="index.html">Página principal</a></li>
 			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
 			<li><a href="hsocio.php">Hazte socio</a></li>
 			<li><a href="login.php">Iniciar sesión</a></li>
 		</ul>
 	</nav>
 </header>
-
+<h4>¿Aún no tienes cuenta? <a href="hsocio.php">Hazte socio</a></h4>
+<br>
+<br>
 <form method="post">
 <input type="text" name="txtUsuarioLogin" id="txtUsuarioLogin">
 <br>

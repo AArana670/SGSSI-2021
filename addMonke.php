@@ -12,13 +12,15 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="#">Página principal</a></li>
-				<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
-				<li><a href="hacerseSocio.php">Hazte socio</a></li>
-			</ul>
+			<li><a href="index.html">Página principal</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="hsocio.php">Hazte socio</a></li>
+			<li><a href="login.php">Iniciar sesión</a></li>
+		</ul>
 		</nav>
 	</header>
-	
+	<h4><a href="mostrarMonkes.php">Volver a la lista de monkes</a></h4>
+	<br>
 	<h1 class="titulo">Añade un monke</h1>
 	<div id="avisos">
 		
