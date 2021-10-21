@@ -35,14 +35,14 @@
 		</tr>
 		
 		<?php
-		$consulta="SELECT `NOMBRE`,`RAZA` FROM MONKE";
+		$consulta="SELECT `MONKID`,`NOMBRE`,`RAZA` FROM MONKE";
    		$resultado=mysqli_query($con, $consulta);
    		 
    		 while($mostrar=mysqli_fetch_array($resultado)){
 		?>
 		
 		<tr>
-			<td><?php echo $mostrar['NOMBRE']?></td>
+			<td><a href="cambiarMonke.php?i=<?php echo $mostrar["MONKID"]?>"><?php echo $mostrar["NOMBRE"]?></a></td>
 			<td><?php echo $mostrar['RAZA']?></td>
 		</tr>
 		
