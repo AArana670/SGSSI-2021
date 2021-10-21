@@ -1,17 +1,18 @@
 <?php
 
-    $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
-    if(!$con){
-    	die("La conexión ha fallado: " . mysqli_connect_error());
-    }
+   // $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
+   // if(!$con){
+   // 	die("La conexión ha fallado: " . mysqli_connect_error());
+    //}
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>Monke Island-Cambiar Datos De Monke</title>
-	<link rel="stylesheet" href="./styleAddMonke.css">
+	  <link rel="stylesheet" href="styleHacerseSocio.css">
 	<script src="buscaMonke.js"></script>
 </head>
 <body>
@@ -28,26 +29,39 @@
 		</ul>
 	</nav>
 	</header>
-	
-	<?php
-		if (isset($_GET["i"])){
-			$id = $_GET["i"];
-			$consulta="SELECT MONKID, NOMBRE, RAZA, SEXO, PELIGRO FROM MONKE WHERE MONKID=$id";
-   			$resultado=mysqli_query($con, $consulta);
-			/*while($datos=mysqli_fetch_array($resultado)){
-				$nombre=$resultado['NOMBRE'];
-				$raza=$resultado['RAZA'];
-				$sexo=$resultado['SEXO'];
-				$peligro=$resultado['PELIGRO'];
-
-			}*/
-			mysqli_close($con); 
-		}
-	?>
-
-	<h4>Id del monke</h4>
+		<h4>Id del monke</h4>
 	<input type="text" id="txtId">
 	<button onclick="buscaMonke()" id="btnBuscar">Buscar</button>
+	
+	<table>
+		<tr>
+			<td>Nombre</td>
+			<td>Raza</td>
+			<td>Sexo</td>
+			<td>Peligro</td>
+		</tr>
+		
+		<?php
+		if (isset($_GET["i"])){
+			$id = $_GET["i"];
+		$consulta="SELECT MONKID, NOMBRE, RAZA, SEXO, PELIGRO FROM MONKE WHERE MONKID='$id'";
+   		$resultado=mysqli_query($con, $consulta);
+   		 }
+   		 while($mostrar=mysqli_fetch_array($resultado)){
+		?>
+		<tr>
+			<td><?php echo $mostrar['NOMBRE']?></td>
+			<td><?php echo $mostrar['RAZA']?></td>
+			<td><?php echo $mostrar['SEXO']?></td>
+			<td><?php echo $mostrar['PELIGRO']?></td>
+		</tr>
+		
+		<?php
+		}
+		?>
+		
+	</table>
+	
 
 	<br>
 
@@ -81,8 +95,8 @@
 		</select>
 		<h4>¿es peligroso?</h4>
 		<select name="peligro" id="drpPeligro">
-			<option value="si">Sí</option>
-			<option value="no">No</option>
+			<option value="1">Sí</option>
+			<option value="0">No</option>
 		</select>
 		<br>
 		<br>
@@ -93,21 +107,23 @@
 <?php
 
 if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtRaza'])&&isset($_GET['i'])) {
+	echo "holaaa";
 	$id=$_GET['i'];
 	$nombre=$_POST['txtNom'];
+	echo "$nombre";
 	$raza=$_POST['txtRaza'];
+	echo "$raza";
 	$sexo=$_POST['sexo'];
-	if($_POST['peligro']=='Sí'){
-		$peligro=1;
-	}
-	else{
-		$peligro=0;
-	}
+	echo "$sexo";
+	$peligro=1;
+	echo "$peligro";
 	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
     }
+    	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
 	$consulta="UPDATE MONKE SET NOMBRE='$nombre', RAZA='$raza', SEXO='$sexo', PELIGRO='$peligro' WHERE MONKID='$id'";
+	$resultado=mysqli_query($con, $consulta);
 	mysqli_close($con); 
 
 }else{
