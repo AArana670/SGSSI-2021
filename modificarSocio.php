@@ -1,8 +1,8 @@
 <?php
 
-    $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
-    if(!$con){
-    	die("La conexión ha fallado: " . mysqli_connect_error());
+	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
+	if(!$con){
+		die("La conexión ha fallado: " . mysqli_connect_error());
 	}
 
 ?>
@@ -11,9 +11,9 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Monke Island-Cambiar Datos De Monke</title>
+	<title>Monke Island-Modificar datos personales</title>
 	  <link rel="stylesheet" href="styleHacerseSocio.css">
-	<script src="cambiarMonke.js"></script>
+	<script src="buscaMonke.js"></script>
 </head>
 <body>
 	<header>
@@ -47,7 +47,7 @@
 		$consulta="SELECT MONKID, NOMBRE, RAZA, SEXO, PELIGRO FROM MONKE WHERE MONKID='$id'";
    		$resultado=mysqli_query($con, $consulta);
    		 }
-   		while($mostrar=mysqli_fetch_array($resultado)){
+   		 while($mostrar=mysqli_fetch_array($resultado)){
 		?>
 		<tr>
 			<td><?php echo $mostrar['NOMBRE']?></td>
@@ -79,7 +79,8 @@
 	<form method="post">
 		
 		<h4>nombre</h4>
-		<input type="text" id="txtNom" name="txtNom" value="<?php
+		<input type="text" id="txtNom" name="txtNom" value="
+		<?php
 			//if (isset($_GET['i'])){
 			//	echo "$nombre";
 			//}
@@ -99,25 +100,34 @@
 		</select>
 		<br>
 		<br>
-		<input type="submit" onclick="limpiar()" name="cambio" id="btnAddMonke" value="Guardar cambios">
+		<input type="submit" name="cambio" id="btnAddMonke">Guardar cambios</input>
 		
 	</form>
 
 <?php
 
 if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtRaza'])&&isset($_GET['i'])) {
+	echo "holaaa";
 	$id=$_GET['i'];
 	$nombre=$_POST['txtNom'];
+	echo "$nombre";
 	$raza=$_POST['txtRaza'];
+	echo "$raza";
 	$sexo=$_POST['sexo'];
-	$peligro=$_POST['peligro'];
+	echo "$sexo";
+	$peligro=1;
+	echo "$peligro";
 	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
     }
+    	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
 	$consulta="UPDATE MONKE SET NOMBRE='$nombre', RAZA='$raza', SEXO='$sexo', PELIGRO='$peligro' WHERE MONKID='$id'";
 	$resultado=mysqli_query($con, $consulta);
 	mysqli_close($con); 
+
+}else{
+	echo "oe pto ponelo todo";
 }
 ?>
 

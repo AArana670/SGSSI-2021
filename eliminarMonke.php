@@ -3,6 +3,7 @@
 	<meta charset="UTF-8">
 	<title>Monke Island-Añadir Monke</title>
 	<link rel="stylesheet" href="./styleAddMonke.css">
+	<script src="borrarMonke.js"></script>
 	
 </head>
 <body>
@@ -12,18 +13,26 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="#">Página principal</a></li>
-				<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
-				<li><a href="hacerseSocio.php">Hazte socio</a></li>
-			</ul>
+			<li><a href="paginaPrincipal.html">Página principal</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="hsocio.php">Hazte socio</a></li>
+			<li><a href="login.php">Iniciar sesión</a></li>
+		</ul>
 		</nav>
 	</header>
 	
-	<h1 class="titulo">Añade un monke</h1>
+	<h1 class="titulo">Elimina un monke</h1>
+	<br>
+	<div id="avisos">
+
+	</div>
+	<br>
 	<form method="POST">
 	<h4>Introduce el id del monke que quieres eliminar</h4>
 	<input type="text" id="txtMONKEID" name="txtMONKEID">
-	<input type="submit" value="Borrar">
+	<div id="confirmar">
+		<button onclick="avisar()" id="btnDel">Borrar</button>
+	</div>
 	</form>
 
 <?php
@@ -32,10 +41,11 @@
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
     }
-    $idu=$_POST['txtMONKEID'];
-    echo "$idu";
-    $consulta="DELETE FROM MONKE WHERE MONKID = '$idu'";
-    mysqli_query($con, $consulta);
+	if (isset($_POST["btnYes"])&&isset($_POST["txtMONKEID"])){
+		$idu=$_POST['txtMONKEID'];
+		$consulta="DELETE FROM MONKE WHERE MONKID = '$idu'";
+		mysqli_query($con, $consulta);
+	}
     mysqli_close($con);
  
 ?>
