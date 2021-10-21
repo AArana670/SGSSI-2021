@@ -13,7 +13,6 @@
 	<meta charset="UTF-8">
 	<title>Monke Island-Modificar datos personales</title>
 	  <link rel="stylesheet" href="styleHacerseSocio.css">
-	<script src="buscaMonke.js"></script>
 </head>
 <body>
 	<header>
@@ -29,9 +28,6 @@
 		</ul>
 	</nav>
 	</header>
-		<h4>Id del monke</h4>
-	<input type="text" id="txtId">
-	<button onclick="buscaMonke()" id="btnBuscar">Buscar</button>
 	
 	<table>
 		<tr>
@@ -44,16 +40,18 @@
 		<?php
 		if (isset($_GET["i"])){
 			$id = $_GET["i"];
-		$consulta="SELECT MONKID, NOMBRE, RAZA, SEXO, PELIGRO FROM MONKE WHERE MONKID='$id'";
+		$consulta="SELECT DNI, NOMBRE, TELEFONO, FECHANAC, EMAIL, USUARIO, CONTRASENA FROM SOCIO WHERE DNI='$id'";
    		$resultado=mysqli_query($con, $consulta);
    		 }
    		 while($mostrar=mysqli_fetch_array($resultado)){
 		?>
 		<tr>
 			<td><?php echo $mostrar['NOMBRE']?></td>
-			<td><?php echo $mostrar['RAZA']?></td>
-			<td><?php echo $mostrar['SEXO']?></td>
-			<td><?php echo $mostrar['PELIGRO']?></td>
+			<td><?php echo $mostrar['TELEFONO']?></td>
+			<td><?php echo $mostrar['FECHANAC']?></td>
+			<td><?php echo $mostrar['EMAIL']?></td>
+			<td><?php echo $mostrar['USUARIO']?></td>
+			<td><?php echo $mostrar['CONTRASENA']?></td>
 		</tr>
 		
 		<?php
@@ -68,9 +66,9 @@
 	<h1 class="titulo">
 		<?php
 			if (isset($_GET['i'])){
-				echo "Datos del monke $id";
+				echo "Datos personales";
 			}else{
-				echo "Introduce un monke que editar";
+				echo "Inicia sesión para poder modificar los datos personales";
 			}
 		?></h1>
 	<div id="avisos">
@@ -86,48 +84,36 @@
 			//}
 		?>"
 		>
-		<h4>raza</h4>
-		<input type="text" id="txtRaza" name="txtRaza">
-		<h4>sexo</h4>
-		<select name="sexo" id="drpSexo">
-			<option value="M">M</option>
-			<option value="H">H</option>
-		</select>
-		<h4>¿es peligroso?</h4>
-		<select name="peligro" id="drpPeligro">
-			<option value="1">Sí</option>
-			<option value="0">No</option>
-		</select>
+		<h4>teléfono</h4>
+		<input type="text" id="txtTel" name="txtTel">
+		<h4>email</h4>
+		<input type="text" id="txtMail" name="txtMail">
+		<h4>nombre de usuario</h4>
+		<input type="text" id="txtUsr" name="txtUsr">
+		<h4>contraseña</h4>
+		<input type="text" id="txtPass" name="txtPass">
 		<br>
 		<br>
-		<input type="submit" name="cambio" id="btnAddMonke">Guardar cambios</input>
+		<input type="submit" name="cambio" id="btnAddSocio">Guardar cambios</input>
 		
 	</form>
 
 <?php
 
-if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtRaza'])&&isset($_GET['i'])) {
-	echo "holaaa";
+if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtTel'])&&isset($_POST['txtMail'])&&isset($_POST['txtUsr'])&&isset($_POST['txtPass'])) {
 	$id=$_GET['i'];
 	$nombre=$_POST['txtNom'];
-	echo "$nombre";
-	$raza=$_POST['txtRaza'];
-	echo "$raza";
-	$sexo=$_POST['sexo'];
-	echo "$sexo";
-	$peligro=1;
-	echo "$peligro";
+	$tel=$_POST['txtTel'];
+	$mail=$_POST['txtMail'];
+	$usr=$_POST['txtUsr'];
+	$pass=$_POST['txtPass'];
 	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
     }
-    	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
-	$consulta="UPDATE MONKE SET NOMBRE='$nombre', RAZA='$raza', SEXO='$sexo', PELIGRO='$peligro' WHERE MONKID='$id'";
+	$consulta="UPDATE SOCIO SET NOMBRE='$nombre', TELEFONO='$tel', EMAIL='$mail', USUARIO='$usr', CONTRASENA='$pass' WHERE DNI='$id'";
 	$resultado=mysqli_query($con, $consulta);
 	mysqli_close($con); 
-
-}else{
-	echo "oe pto ponelo todo";
 }
 ?>
 
