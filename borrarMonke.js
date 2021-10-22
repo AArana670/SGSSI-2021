@@ -1,5 +1,3 @@
-
-
 function avisar() {
     divDel = document.getElementById("confirmar");
 

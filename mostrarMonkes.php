@@ -58,5 +58,7 @@
 <br>
 <br>
 <h4>¿Falta algún monke? <a href="addMonke.php">Añádelo</a></h4>
+<br>
+<h4><a href="eliminarMonke.php">Eliminar monkes</a></h4>
 </body>
 </html>

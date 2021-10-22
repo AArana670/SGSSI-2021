@@ -101,7 +101,6 @@
 		<br>
 		<br>
 		<input type="submit" onclick="limpiar()" name="cambio" id="btnAddMonke" value="Guardar cambios">
-		
 	</form>
 
 <?php

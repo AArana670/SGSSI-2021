@@ -32,34 +32,35 @@
 <input type="text" name="txtUsuarioLogin" id="txtUsuarioLogin">
 <br>
 <br>
-<input type="text" name="txtContrLogin" id="txtContrLogin">
+<input type="password" name="txtContrLogin" id="txtContrLogin">
 <br>
 <br>
-<button onclick="submit" id="btnLOGIN">Iniciar sesión</button>
+<button onclick="submit" id="btnLOGIN" name="btnLogin">Iniciar sesión</button>
 </form>
 <?php
-
-    $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
-    if(!$con){
-    	die("La conexión ha fallado: " . mysqli_connect_error());
-    }
-    $usuario=$_POST['txtUsuarioLogin'];
-    $contrasena=$_POST['txtContrLogin'];
-    $consulta="SELECT DNI FROM SOCIO WHERE USUARIO='$usuario'AND CONTRASENA='$contrasena'" ;
-    $resultado=mysqli_query($con, $consulta);
-    $ses=mysqli_fetch_array($resultado);
-    $filas=mysqli_num_rows($resultado);
-    if($filas){
-    	echo "usuario y contraseña correctas";
-        $dni=$ses['DNI'];
-        $_SESSION["usrDni"]=$dni;
-        $_SESSION["usrName"]=$usuario;
-        header("Refresh:0");
-    }else{
-    	echo "usuario o contraseña incorrectas";
-    }
-    mysqli_free_result($resultado);
-    mysqli_close($con); 
+    if (isset($_POST["btnLogin"])){
+        $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
+        if(!$con){
+    	    die("La conexión ha fallado: " . mysqli_connect_error());
+        }
+        $usuario=$_POST['txtUsuarioLogin'];
+        $contrasena=$_POST['txtContrLogin'];
+        $consulta="SELECT DNI FROM SOCIO WHERE USUARIO='$usuario'AND CONTRASENA='$contrasena'" ;
+        $resultado=mysqli_query($con, $consulta);
+        $ses=mysqli_fetch_array($resultado);
+        $filas=mysqli_num_rows($resultado);
+        if($filas){
+    	    echo "usuario y contraseña correctas";
+            $dni=$ses['DNI'];
+            $_SESSION["usrDni"]=$dni;
+            $_SESSION["usrName"]=$usuario;
+            header("Refresh:0");
+        }else{
+    	    echo "usuario o contraseña incorrectas";
+        }
+        mysqli_free_result($resultado);
+        mysqli_close($con); 
+     }
 ?>
 
 </body>

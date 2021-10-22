@@ -46,7 +46,7 @@
 	<h4>Usuario</h4>
 	<input type="text" name="usuario" id="usuario">
 	<h4>Contraseña</h4>
-	<input type="text" name="contr" id="contr">
+	<input type="password" name="contr" id="contr">
 	<br>
 	<br>
 	<button onclick="addSocio()" id="btnAddSocio">Convertirse en socio</button>
@@ -68,6 +68,8 @@
    		mysqli_query($con, $consulta);
     		mysqli_close($con); 
     		echo "EL usuario nuevo ha sido registrado";
+		$_SESSION["usrDni"]=$dni;
+		$_SESSION["usrName"]=$nombre;
 		}
 	?>
 </body>

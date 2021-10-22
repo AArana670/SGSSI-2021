@@ -96,7 +96,7 @@
 		<h4>nombre de usuario</h4>
 		<input type="text" id="txtUsr" name="txtUsr">
 		<h4>contraseña</h4>
-		<input type="text" id="txtPass" name="txtPass">
+		<input type="password" id="txtPass" name="txtPass">
 		<br>
 		<br>
 		<input type="submit" name="cambio" id="btnAddSocio">Guardar cambios</input>
