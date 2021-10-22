@@ -1,5 +1,6 @@
-<?php
 
+<?php
+	session_start();
 	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
 	if(!$con){
 		die("La conexión ha fallado: " . mysqli_connect_error());
@@ -21,10 +22,14 @@
 		</div>
 		<nav>
 		<ul>
-			<li><a href="index.html">Página principal</a></li>
+			<li><a href="index.php">Página principal</a></li>
 			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
-			<li><a href="hsocio.php">Hazte socio</a></li>
-			<li><a href="login.php">Iniciar sesión</a></li>
+			<?php if (isset($_SESSION['usrDni'])){?>
+				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
+			<?php }else{ ?>
+				<li><a href="hsocio.php">Hazte socio</a></li>
+				<li><a href="login.php">Iniciar sesión</a></li>
+			<?php } ?>
 		</ul>
 	</nav>
 	</header>
@@ -95,7 +100,7 @@
 		<br>
 		<br>
 		<input type="submit" name="cambio" id="btnAddSocio">Guardar cambios</input>
-		
+		<button name="cerrar" id="cerrar">Cerrar Sesión</button>
 	</form>
 
 <?php
@@ -113,7 +118,13 @@ if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtTel'])&&is
     }
 	$consulta="UPDATE SOCIO SET NOMBRE='$nombre', TELEFONO='$tel', EMAIL='$mail', USUARIO='$usr', CONTRASENA='$pass' WHERE DNI='$id'";
 	$resultado=mysqli_query($con, $consulta);
-	mysqli_close($con); 
+	mysqli_close($con);
+	header("Refresh:0");
+}else{
+	if (isset($_POST['cerrar'])){
+		session_destroy();
+		header("Refresh:0");
+	}
 }
 ?>
 

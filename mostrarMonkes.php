@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
     $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
@@ -19,10 +19,14 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a href="index.html">Página principal</a></li>
+			<li><a href="index.php">Página principal</a></li>
 			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
-			<li><a href="hsocio.php">Hazte socio</a></li>
-			<li><a href="login.php">Iniciar sesión</a></li>
+			<?php if (isset($_SESSION['usrDni'])){?>
+				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
+			<?php }else{ ?>
+				<li><a href="hsocio.php">Hazte socio</a></li>
+				<li><a href="login.php">Iniciar sesión</a></li>
+			<?php } ?>
 		</ul>
 	</nav>
 </header>

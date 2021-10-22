@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +14,14 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a href="index.html">Página principal</a></li>
+			<li><a href="index.php">Página principal</a></li>
 			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
-			<li><a href="hsocio.php">Hazte socio</a></li>
-			<li><a href="login.php">Iniciar sesión</a></li>
+			<?php if (isset($_SESSION['usrDni'])){?>
+				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
+			<?php }else{ ?>
+				<li><a href="hsocio.php">Hazte socio</a></li>
+				<li><a href="login.php">Iniciar sesión</a></li>
+			<?php } ?>
 		</ul>
 	</nav>
 </header>
@@ -40,14 +45,17 @@
     }
     $usuario=$_POST['txtUsuarioLogin'];
     $contrasena=$_POST['txtContrLogin'];
-    session_start();
-    $_SESSION['usuario']=$usuario;
-    $consulta="SELECT * FROM SOCIO WHERE USUARIO='$usuario'AND CONTRASENA='$contrasena'" ;
+    $consulta="SELECT DNI FROM SOCIO WHERE USUARIO='$usuario'AND CONTRASENA='$contrasena'" ;
     $resultado=mysqli_query($con, $consulta);
+    $ses=mysqli_fetch_array($resultado);
     $filas=mysqli_num_rows($resultado);
     if($filas){
     	echo "usuario y contraseña correctas";
-    }else{  
+        $dni=$ses['DNI'];
+        $_SESSION["usrDni"]=$dni;
+        $_SESSION["usrName"]=$usuario;
+        header("Refresh:0");
+    }else{
     	echo "usuario o contraseña incorrectas";
     }
     mysqli_free_result($resultado);

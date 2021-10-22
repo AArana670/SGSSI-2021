@@ -1,10 +1,10 @@
 <?php
-
+	session_start();
     $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
 	}
-
+	
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +22,14 @@
 		</div>
 		<nav>
 		<ul>
-			<li><a href="index.html">Página principal</a></li>
+			<li><a href="index.php">Página principal</a></li>
 			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
-			<li><a href="hsocio.php">Hazte socio</a></li>
-			<li><a href="login.php">Iniciar sesión</a></li>
+			<?php if (isset($_SESSION['usrDni'])){?>
+				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
+			<?php }else{ ?>
+				<li><a href="hsocio.php">Hazte socio</a></li>
+				<li><a href="login.php">Iniciar sesión</a></li>
+			<?php } ?>
 		</ul>
 	</nav>
 	</header>
@@ -114,7 +118,8 @@ if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtRaza'])&&i
     }
 	$consulta="UPDATE MONKE SET NOMBRE='$nombre', RAZA='$raza', SEXO='$sexo', PELIGRO='$peligro' WHERE MONKID='$id'";
 	$resultado=mysqli_query($con, $consulta);
-	mysqli_close($con); 
+	mysqli_close($con);
+	header("Refresh:0");
 }
 ?>
 

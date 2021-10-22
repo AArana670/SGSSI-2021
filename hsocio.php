@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +14,18 @@
 <body>
  	<header>
  		 <div>
-  			<img src="https://see.fontimg.com/api/renderfont4/M72w/		eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjRkVGRUZFIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/bW9ua2UgaXNhbG5k/hanalei-fill.png"></a>
+  			<img src="https://see.fontimg.com/api/renderfont4/M72w/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjRkVGRUZFIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/bW9ua2UgaXNhbG5k/hanalei-fill.png"></a>
 		</div>
 		<nav>
 			<ul>
-			<li><a href="index.html">Página principal</a></li>
+			<li><a href="index.php">Página principal</a></li>
 			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
-			<li><a href="hsocio.php">Hazte socio</a></li>
-			<li><a href="login.php">Iniciar sesión</a></li>
+			<?php if (isset($_SESSION['usrDni'])){?>
+				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
+			<?php }else{ ?>
+				<li><a href="hsocio.php">Hazte socio</a></li>
+				<li><a href="login.php">Iniciar sesión</a></li>
+			<?php } ?>
 		</ul>
 		</nav>
 	</header>
