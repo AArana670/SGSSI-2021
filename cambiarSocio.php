@@ -23,7 +23,7 @@
 		<nav>
 		<ul>
 			<li><a href="index.php">Página principal</a></li>
-			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros primates</a></li>
 			<?php if (isset($_SESSION['usrDni'])){?>
 				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
 			<?php }else{ ?>
@@ -37,9 +37,10 @@
 	<table>
 		<tr>
 			<td>Nombre</td>
-			<td>Raza</td>
-			<td>Sexo</td>
-			<td>Peligro</td>
+			<td>Teléfono</td>
+			<td>Fecha de nacimiento</td>
+			<td>Email</td>
+			<td>Nombre de usuario</td>
 		</tr>
 		
 		<?php
@@ -56,7 +57,6 @@
 			<td><?php echo $mostrar['FECHANAC']?></td>
 			<td><?php echo $mostrar['EMAIL']?></td>
 			<td><?php echo $mostrar['USUARIO']?></td>
-			<td><?php echo $mostrar['CONTRASENA']?></td>
 		</tr>
 		
 		<?php
@@ -119,11 +119,9 @@ if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtTel'])&&is
 	$consulta="UPDATE SOCIO SET NOMBRE='$nombre', TELEFONO='$tel', EMAIL='$mail', USUARIO='$usr', CONTRASENA='$pass' WHERE DNI='$id'";
 	$resultado=mysqli_query($con, $consulta);
 	mysqli_close($con);
-	header("Refresh:0");
 }else{
 	if (isset($_POST['cerrar'])){
 		session_destroy();
-		header("Refresh:0");
 	}
 }
 ?>

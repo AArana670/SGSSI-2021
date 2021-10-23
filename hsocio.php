@@ -19,7 +19,7 @@
 		<nav>
 			<ul>
 			<li><a href="index.php">Página principal</a></li>
-			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros primates</a></li>
 			<?php if (isset($_SESSION['usrDni'])){?>
 				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
 			<?php }else{ ?>
@@ -35,7 +35,7 @@
 	<div id="avisos"> </div>
 	<h4>Nombre y apellido</h4>	
 	<input type="text" name="nomApell" id="nomApell">
-	<h4>DNI</h4>
+	<h4>DNI (en formato 11111111-A)</h4>
 	<input type="text" name="dni" id="dni">
 	<h4>Fecha de nacimiento</h4>
 	<input type="date" name="fechaNac" id="fechaNac">

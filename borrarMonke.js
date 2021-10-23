@@ -2,7 +2,7 @@ function avisar() {
     divDel = document.getElementById("confirmar");
 
     txtAviso = document.createElement("H4");
-    txtAviso.textContent = "Esta seguro de que quiere eliminar el monke " + document.getElementById("txtMONKEID").value + "?";
+    txtAviso.textContent = "Esta seguro de que quiere eliminar el primate " + document.getElementById("txtMONKEID").value + "?";
 
     btnYes = document.createElement("button");
     btnYes.id = "btnYes";
@@ -23,7 +23,7 @@ function avisar() {
 
 function confirmar() {
 
-    crearAviso("El monke "+document.getElementById("txtMONKEID").value+" se ha eliminado con exito")
+    crearAviso("El primate "+document.getElementById("txtMONKEID").value+" se ha eliminado con exito")
     volver();
 }
 

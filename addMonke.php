@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Monke Island-Añadir Monke</title>
+	<title>Monke Island-Añadir Primate</title>
 	<link rel="stylesheet" href="./styleAddMonke.css">
 	<script src="scriptAddMonke.js"></script>
 </head>
@@ -14,7 +14,7 @@
 		<nav>
 			<ul>
 			<li><a href="index.php">Página principal</a></li>
-			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros primates</a></li>
 			<?php if (isset($_SESSION['usrDni'])){?>
 				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
 			<?php }else{ ?>
@@ -24,9 +24,9 @@
 		</ul>
 		</nav>
 	</header>
-	<h4><a href="mostrarMonkes.php">Volver a la lista de monkes</a></h4>
+	<h4><a href="mostrarMonkes.php">Volver a la lista de primates</a></h4>
 	<br>
-	<h1 class="titulo">Añade un monke</h1>
+	<h1 class="titulo">Añade un primate</h1>
 	<div id="avisos">
 		
 	</div>
@@ -48,7 +48,7 @@
 		</select>
 		<br>
 		<br>
-		<button onclick="addMonke()" id="btnAddMonke">Añadir monke</button>
+		<button onclick="addMonke()" id="btnAddMonke">Añadir primate</button>
 		
 	</div>
 

@@ -11,7 +11,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Monke Island-Cambiar Datos De Monke</title>
+	<title>Monke Island-Cambiar Datos De Primate</title>
 	  <link rel="stylesheet" href="styleHacerseSocio.css">
 	<script src="cambiarMonke.js"></script>
 </head>
@@ -23,7 +23,7 @@
 		<nav>
 		<ul>
 			<li><a href="index.php">Página principal</a></li>
-			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros primates</a></li>
 			<?php if (isset($_SESSION['usrDni'])){?>
 				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
 			<?php }else{ ?>
@@ -33,7 +33,7 @@
 		</ul>
 	</nav>
 	</header>
-		<h4><a href="mostrarMonkes.php">Volver a la lista de monkes</a></h4>
+		<h4><a href="mostrarMonkes.php">Volver a la lista de primates</a></h4>
 	<table>
 		<tr>
 			<td>Nombre</td>
@@ -100,7 +100,7 @@
 		</select>
 		<br>
 		<br>
-		<input type="submit" onclick="limpiar()" name="cambio" id="btnAddMonke" value="Guardar cambios">
+		<input type="submit" onClick="window.location.reload();" name="cambio" id="btnAddMonke" value="Guardar cambios">
 	</form>
 
 <?php
@@ -118,7 +118,6 @@ if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtRaza'])&&i
 	$consulta="UPDATE MONKE SET NOMBRE='$nombre', RAZA='$raza', SEXO='$sexo', PELIGRO='$peligro' WHERE MONKID='$id'";
 	$resultado=mysqli_query($con, $consulta);
 	mysqli_close($con);
-	header("Refresh:0");
 }
 ?>
 

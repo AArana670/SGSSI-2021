@@ -15,7 +15,7 @@
 	<nav>
 		<ul>
 			<li><a href="index.php">Página principal</a></li>
-			<li><a href="mostrarMonkes.php">Nuestros monkes</a></li>
+			<li><a href="mostrarMonkes.php">Nuestros primates</a></li>
 			<?php if (isset($_SESSION['usrDni'])){?>
 				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
 			<?php }else{ ?>
@@ -27,11 +27,11 @@
 </header>
 <h4>¿Aún no tienes cuenta? <a href="hsocio.php">Hazte socio</a></h4>
 <br>
-<br>
 <form method="post">
+<h4>Nombre de usuario:</h4>
 <input type="text" name="txtUsuarioLogin" id="txtUsuarioLogin">
 <br>
-<br>
+<h4>Contraseña:</h4>
 <input type="password" name="txtContrLogin" id="txtContrLogin">
 <br>
 <br>
@@ -54,7 +54,6 @@
             $dni=$ses['DNI'];
             $_SESSION["usrDni"]=$dni;
             $_SESSION["usrName"]=$usuario;
-            header("Refresh:0");
         }else{
     	    echo "usuario o contraseña incorrectas";
         }
