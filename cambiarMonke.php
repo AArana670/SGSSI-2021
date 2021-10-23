@@ -57,9 +57,7 @@
 			<td><?php echo $mostrar['PELIGRO']?></td>
 		</tr>
 		
-		<?php
-		}
-		?>
+		
 		
 	</table>
 	
@@ -81,9 +79,9 @@
 		
 		<h4>nombre</h4>
 		<input type="text" id="txtNom" name="txtNom" value="<?php
-			//if (isset($_GET['i'])){
-			//	echo "$nombre";
-			//}
+			/*if (isset($mostrar['NOMBRE'])){
+				echo "$nombre";
+			}*/
 		?>"
 		>
 		<h4>raza</h4>
@@ -102,6 +100,9 @@
 		<br>
 		<input type="submit" onclick="limpiar()" name="cambio" id="btnAddMonke" value="Guardar cambios">
 	</form>
+	<?php
+		}
+	?>
 
 <?php
 

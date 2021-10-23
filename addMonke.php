@@ -58,13 +58,14 @@ if (isset($_GET["w1"]) && isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GE
 	if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
     }
-	$idConsulta=mysqli_query($con, "SELECT * FROM MONKE");
-    $id=mysql_num_rows($idConsulta)+1;
+	$consulta="SELECT * FROM MONKE" ;
+    $resultado=mysqli_query($con, $consulta);
+    $filas=mysqli_num_rows($resultado);
     $nombre = $_GET["w1"];
     $raza = $_GET["w2"];
     $sexo = $_GET["w3"];
     $peligro = $_GET["w4"];
-    $consulta="INSERT INTO MONKE(MONKID, NOMBRE, RAZA, SEXO, PELIGRO) VALUES ('$id','$nombre','$raza','$sexo','$peligro')";
+    $consulta="INSERT INTO MONKE(MONKID, NOMBRE, RAZA, SEXO, PELIGRO) VALUES ('$filas','$nombre','$raza','$sexo','$peligro')";
     mysqli_query($con, $consulta);
     mysqli_close($con);
 } 
