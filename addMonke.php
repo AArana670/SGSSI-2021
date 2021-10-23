@@ -38,8 +38,8 @@
 		<input type="text" id="txtRaza">
 		<h4>sexo</h4>
 		<select name="sexo" id="drpSexo">
-			<option value="M">M</option>
-			<option value="H">H</option>
+			<option value="M">Macho</option>
+			<option value="H">Hembra</option>
 		</select>
 		<h4>¿es peligroso?</h4>
 		<select name="peligro" id="drpPeligro">
@@ -58,8 +58,10 @@ if (isset($_GET["w1"]) && isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GE
 	if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
     }
-	$idConsulta=mysqli_query($con, "SELECT * FROM MONKE");
-    $id=mysql_num_rows($idConsulta)+1;
+	$consulta="SELECT MAX(MONKID) as maxId FROM MONKE" ;
+    $resultado=mysqli_query($con, $consulta);
+	$mostrar=mysqli_fetch_array($resultado);
+    $id=$mostrar["maxId"]+1;
     $nombre = $_GET["w1"];
     $raza = $_GET["w2"];
     $sexo = $_GET["w3"];

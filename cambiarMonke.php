@@ -90,8 +90,8 @@
 		<input type="text" id="txtRaza" name="txtRaza">
 		<h4>sexo</h4>
 		<select name="sexo" id="drpSexo">
-			<option value="M">M</option>
-			<option value="H">H</option>
+			<option value="M">Macho</option>
+			<option value="H">Hembra</option>
 		</select>
 		<h4>¿es peligroso?</h4>
 		<select name="peligro" id="drpPeligro">
