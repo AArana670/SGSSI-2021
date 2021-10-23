@@ -15,11 +15,12 @@ function addMonke(){
 			crearAviso("Por favor, introduzca la raza");
 		else{
 			crearAviso(nom+" se ha añadido a la base de datos");
+			var idMonke="Monke3"
 			var Nom=document.getElementById("txtNom").value;
 			var Raza=document.getElementById("txtRaza").value;
 			var sexo=value;
 			var pelig=value2;
-			window.location.href = window.location.href + "&w1=" + Nom + "&w2=" + Raza + "&w3=" + sexo + "&w4=" + pelig;
+			window.location.href = window.location.href + "?w1=" + idMonke + "&w2=" + Nom + "&w3=" + Raza + "&w4=" + sexo + "&w5=" + pelig;
 		}
 	}
 }
