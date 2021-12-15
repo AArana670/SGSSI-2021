@@ -1,21 +1,21 @@
 function avisar() {
     divDel = document.getElementById("confirmar");
 
-    txtAviso = document.createElement("H4");
+    txtAviso = document.createElement("H4"); //Se crea el aviso de confirmación
     txtAviso.textContent = "Esta seguro de que quiere eliminar el primate " + document.getElementById("txtMONKEID").value + "?";
 
-    btnYes = document.createElement("button");
+    btnYes = document.createElement("button"); //Se crea el botón de confirmar
     btnYes.id = "btnYes";
     btnYes.name ="btnYes";
     btnYes.innerHTML = "Aceptar";
-    btnYes.addEventListener("click", function () { confirmar(); });
+    btnYes.addEventListener("click", function () { confirmar(); }); //Al hacer clic llama a la función JavaScript confirmar()
 
-    btnNo = document.createElement("button");
+    btnNo = document.createElement("button"); //Se crea el botón de cancelar
     btnNo.id = "btnNo";
     btnNo.innerHTML = "Cancelar";
-    btnNo.addEventListener("click", function () { volver(); });
+    btnNo.addEventListener("click", function () { volver(); }); //Al hacer clic llama a la función JavaScript cancelar()
 
-    divDel.removeChild(document.getElementById("btnDel"));
+    divDel.removeChild(document.getElementById("btnDel")); //Se elimina el botón anterior y se añaden los nuevos y el aviso al div
     divDel.appendChild(txtAviso);
     divDel.appendChild(btnYes);
     divDel.appendChild(btnNo);
@@ -23,19 +23,18 @@ function avisar() {
 
 function confirmar() {
 
-    crearAviso("El primate "+document.getElementById("txtMONKEID").value+" se ha eliminado con exito")
     volver();
 }
 
 function volver() {
     divDel = document.getElementById("confirmar");
 
-    btnDel = document.createElement("button");
+    btnDel = document.createElement("button"); //Se crea el botón de borrar
     btnDel.id = "btnBorrar";
     btnDel.innerHTML = "Borrar";
-    btnDel.addEventListener("click", function () { avisar(); });
+    btnDel.addEventListener("click", function () { avisar(); }); //Al hacer clic llama a la función JavaScript avisar()
 
-    divDel.removeChild(document.getElementById("txtAviso"));
+    divDel.removeChild(document.getElementById("txtAviso")); //Se eliminan el aviso y los botones anteriores y se añade el botón nuevo al div
     divDel.removeChild(document.getElementById("btnYes"));
     divDel.removeChild(document.getElementById("btnNo"));
     divDel.appendChild(btnDel);
@@ -43,12 +42,12 @@ function volver() {
 
 function crearAviso(msg) {
     divAviso = document.getElementById("avisos");
-    aviso = document.getElementById("aviso");
+    aviso = document.getElementById("aviso"); //Se elimina el aviso anterior del div "avisos"
     if (aviso != null)
         divAviso.removeChild(aviso);
-    aviso = document.createElement("H5");
+    aviso = document.createElement("H5"); //Se crea un nuevo elemento H5 con el texto indicado
     aviso.textContent = msg;
     aviso.className = "aviso";
     aviso.id = "aviso";
-    divAviso.appendChild(aviso);
+    divAviso.appendChild(aviso); //Se añade el nuevo aviso al div "avisos"
 }

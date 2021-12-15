@@ -1,6 +1,6 @@
-<?php
-	session_start();
-    $con = mysqli_connect("localhost","admin","password","MONKEISLAND");
+<?php 
+    session_start();
+    $con = mysqli_connect("db","admin","test","database");
     if(!$con){
     	die("La conexión ha fallado: " . mysqli_connect_error());
 	}
@@ -12,113 +12,118 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Monke Island-Cambiar Datos De Primate</title>
-	  <link rel="stylesheet" href="styleHacerseSocio.css">
+	<link rel="stylesheet" href="style.css">
 	<script src="cambiarMonke.js"></script>
+	<link rel="icon" type="image/png" href="/favicon.png"/>
+  	<link rel="icon" type="image/png" href="https://favicon-generator.org/favicon-generator/htdocs/favicons/2012-10-18/11028c7d3531cb369e8128ace155a556.ico"/>
 </head>
 <body>
 	<header>
 		<div>
-			<img src="https://see.fontimg.com/api/renderfont4/M72w/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjRkVGRUZFIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/bW9ua2UgaXNhbG5k/hanalei-fill.png"></a>
+			<img src="https://see.fontimg.com/api/renderfont4/M72w/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjRkZGQ0ZDIiwiYmdjIjoiI0Y0RjNGMyIsInQiOjF9/bW9ua2UgaXNsYW5k/hanalei-fill.png"></a>
 		</div>
 		<nav>
-		<ul>
-			<li><a href="index.php">Página principal</a></li>
-			<li><a href="mostrarMonkes.php">Nuestros primates</a></li>
-			<?php if (isset($_SESSION['usrDni'])){?>
-				<li><a href="cambiarSocio.php?i=<?php echo $_SESSION["usrDni"];?>"></a><?php echo $_SESSION["usrName"];?></li>
-			<?php }else{ ?>
+			<ul>
+				<li><a href="index.php">Página principal</a></li>
+				<li><a href="mostrarMonkes.php">Nuestros primates</a></li>
 				<li><a href="hsocio.php">Hazte socio</a></li>
 				<li><a href="login.php">Iniciar sesión</a></li>
-			<?php } ?>
-		</ul>
-	</nav>
+			</ul>
+		</nav>
 	</header>
-		<h4><a href="mostrarMonkes.php">Volver a la lista de primates</a></h4>
-	<table>
-		<tr>
-			<td>Nombre</td>
-			<td>Raza</td>
-			<td>Sexo</td>
-			<td>Peligro</td>
-		</tr>
+	
+		<img class="tituloPrin" src="https://see.fontimg.com/api/renderfont4/M72w/eyJyIjoiZnMiLCJoIjozNSwidyI6MTAwMCwiZnMiOjM1LCJmZ2MiOiIjRkVGRUZFIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/UHJpbWF0ZXMgZGUgbnVlc3RybyByZWZ1Z2lv/hanalei-fill.png"></a>
+	<br>
+	<h1><a class ="links" href="mostrarMonkes.php">Volver a la lista de primates</a></h1>
+	<br>
+		<table>
+			<tr>
+				<td>Nombre</td>
+				<td>Raza</td>
+				<td>Sexo</td>
+				<td>Peligro</td>
+			</tr>
 		
 		<?php
-		if (isset($_GET["i"])){
-			$id = $_GET["i"];
-		$consulta="SELECT MONKID, NOMBRE, RAZA, SEXO, PELIGRO FROM MONKE WHERE MONKID='$id'";
-   		$resultado=mysqli_query($con, $consulta);
-   		 }
-   		while($mostrar=mysqli_fetch_array($resultado)){
+			if (isset($_GET["i"])){
+				$id = $_GET["i"];
+				$consulta="SELECT MONKID, NOMBRE, RAZA, SEXO, PELIGRO FROM MONKE WHERE MONKID='$id'";
+   				$resultado=mysqli_query($con, $consulta);
+   		 	}
+   			while($mostrar=mysqli_fetch_array($resultado)){
 		?>
-		<tr>
-			<td><?php echo $mostrar['NOMBRE']?></td>
-			<td><?php echo $mostrar['RAZA']?></td>
-			<td><?php echo $mostrar['SEXO']?></td>
-			<td><?php echo $mostrar['PELIGRO']?></td>
-		</tr>
+			<tr>
+				<td><?php echo $mostrar['NOMBRE']?></td>
+				<td><?php echo $mostrar['RAZA']?></td>
+				<td><?php echo $mostrar['SEXO']?></td>
+				<td><?php echo $mostrar['PELIGRO']?></td>
+			</tr>
 		
 		<?php
 		}
 		?>
 		
-	</table>
-	
-
+		</table>
 	<br>
-
 	<h1 class="titulo">
 		<?php
 			if (isset($_GET['i'])){
-				echo "Datos del monke $id";
+				echo "Datos del primate $id";
 			}else{
-				echo "Introduce un monke que editar";
+				echo "Introduce un primate que editar";
 			}
 		?></h1>
-	<div id="avisos">
-		
-	</div>
+	<div class="aviso" id="avisos"<h1></h1></div>
+	<br>
 	<form method="post">
-		
-		<h4>nombre</h4>
-		<input type="text" id="txtNom" name="txtNom" value="<?php
-			//if (isset($_GET['i'])){
-			//	echo "$nombre";
-			//}
-		?>"
-		>
-		<h4>raza</h4>
+		<h4>Nombre</h4>
+		<input type="text" id="txtNom" name="txtNom">
+		<h4>Raza</h4>
 		<input type="text" id="txtRaza" name="txtRaza">
-		<h4>sexo</h4>
+		<h4>Sexo</h4>
 		<select name="sexo" id="drpSexo">
 			<option value="M">Macho</option>
 			<option value="H">Hembra</option>
 		</select>
-		<h4>¿es peligroso?</h4>
+		<h4>¿Es peligroso?</h4>
 		<select name="peligro" id="drpPeligro">
 			<option value="1">Sí</option>
 			<option value="0">No</option>
 		</select>
 		<br>
 		<br>
-		<input type="submit" onClick="window.location.reload();" name="cambio" id="btnAddMonke" value="Guardar cambios">
+		<div id="confirmar">
+			<button class="btnGuardar" type="button" onclick="validar()" name="cambio" id="btnCambiar">Guardar cambios</button>
+		</div>
 	</form>
 
 <?php
 
-if(isset($_POST['cambio'])&&isset($_POST['txtNom'])&&isset($_POST['txtRaza'])&&isset($_GET['i'])) {
-	$id=$_GET['i'];
-	$nombre=$_POST['txtNom'];
-	$raza=$_POST['txtRaza'];
-	$sexo=$_POST['sexo'];
-	$peligro=$_POST['peligro'];
-	$con = mysqli_connect("localhost","admin","password","MONKEISLAND");
-    if(!$con){
-    	die("La conexión ha fallado: " . mysqli_connect_error());
-    }
-	$consulta="UPDATE MONKE SET NOMBRE='$nombre', RAZA='$raza', SEXO='$sexo', PELIGRO='$peligro' WHERE MONKID='$id'";
-	$resultado=mysqli_query($con, $consulta);
-	mysqli_close($con);
-}
+	if(isset($_POST['btnYes'])) {
+		$id=$_GET['i'];
+		$nombre=$_POST['txtNom'];
+		$raza=$_POST['txtRaza'];
+		if(!empty($nombre)&&!empty($raza)){
+			$sexo=$_POST['sexo'];
+			$peligro=$_POST['peligro'];
+			$con = mysqli_connect("db","admin","test","database");
+   			if(!$con){
+    				die("La conexión ha fallado: " . mysqli_connect_error());
+    			}	
+    		
+			$consulta="UPDATE MONKE SET NOMBRE='$nombre', RAZA='$raza', SEXO='$sexo', PELIGRO='$peligro' WHERE MONKID='$id'";
+			$resultado=mysqli_query($con, $consulta);
+			mysqli_close($con);
+		
+			echo"<html>";
+    			echo "<br>";
+    			echo"<h1> Datos del primate actualizados";
+    			echo "<br>";
+    			echo"</html>";
+
+		}
+	
+	}
 ?>
 
 </body>
