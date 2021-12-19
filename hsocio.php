@@ -77,7 +77,7 @@
     			$usuario = $_GET["w6"];
     			$password = $_GET["w7"];
     			//conexión a la base de datos
-    			$con = mysqli_connect("db","admin","test","database");
+    			$con = mysqli_connect("db","monkeyDirector","fVNsjkNwyrtL0yqq","database");
     			if(!$con){
     				die("La conexión ha fallado: " . mysqli_connect_error());
     			}

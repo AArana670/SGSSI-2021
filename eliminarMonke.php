@@ -44,7 +44,7 @@
 	<h1><a class= "links" href="mostrarMonkes.php">Volver a la lista de primates</a></h1>
 
 <?php   //conexión con la base de datos
-	$con = mysqli_connect("db","admin","test","database");
+	$con = mysqli_connect("db","monkeyDirector","fVNsjkNwyrtL0yqq","database");
 	if(!$con){
     		die("La conexión ha fallado: " . mysqli_connect_error());
     	} //recogida de datos

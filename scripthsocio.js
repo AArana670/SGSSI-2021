@@ -4,6 +4,11 @@ const expresiones ={ //formatos correctos de los inputs
 	email: /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Cadena de caracteres + @ + cadena de caracteres + . + cadena de caracteres
 	usuario:  /[a-zA-Z0-9\_\-]{4,16}$/, //Cadena de alfanuméricos entre 4 y 16 caracteres
 	contrasena: /[a-zA-Z0-9\_\-]{4,16}$/, //Cadena de alfanuméricos entre 4 y 16 caracteres
+	passLen:/^.{8,}$/, //Cadena de al menos 8 caracteres
+	passMay:/[A-Z]/, //Cadena con mayúsculas
+	passMin:/[a-z]/, //Cadena con minúsculas
+	passNum:/[0-9]/, //Cadena con números
+	passSym:/[$-/:-?{-~!"^_`\[\]]/, //Cadena con símbolos
 }
 
 
@@ -27,12 +32,14 @@ function addSocio(){
 						if (!document.getElementById("usuario").value.match(expresiones.usuario)) //El nombre de usuario no cumple con el formato
 							crearAviso("El nombre de usuario no es válido");
 						else{
-							if (!document.getElementById("contr").value.match(expresiones.contrasena)) //La contraseña no cumple con el formato
-								crearAviso("La contraseña no es válida");
-							else{
+							pass=document.getElementById("contr");
+							if (!pass.value.match(expresiones.passLen)||!pass.value.match(expresiones.passMay)||!pass.value.match(expresiones.passMin)||!pass.value.match(expresiones.passNum)||!pass.value.match(expresiones.passSym)){ //La contraseña no cumple con el formato
+								console.log("echa el freno");
+								crearAviso("La contraseña debe tener al menos 8 caracteres y debe contener mayúsculas, minúsculas, números y símbolos");
+							}else{
 								crearAviso("Todos los datos introducidos son correctos");
 								var txtDNI=document.getElementById("dni").value; //Se toman todos los valores de los inputs en variables
-								console.log()
+								console.log("chido");
 								var txtNomApell=document.getElementById("nomApell").value;
 								var txtTel=document.getElementById("tel").value;
 								var txtfechNac= document.getElementById("fechaNac").value.toString();
@@ -71,9 +78,4 @@ function crearAviso(msg){
 	aviso.className="aviso";
 	aviso.id="aviso";
 	divAviso.appendChild(aviso); //Se añade el nuevo aviso al div "avisos"
-}	
-	
-		
-
-	
-	
+}

@@ -66,7 +66,7 @@
 	if (isset($_GET["w1"]) && isset($_GET["w2"]) && isset($_GET["w3"]) && isset($_GET["w4"])) { //if para recoger los datos de la URL
 		
 		//intento de conexión a la base de datos
-		$con = mysqli_connect("db","admin","test","database");
+		$con = mysqli_connect("db","monkeyDirector","fVNsjkNwyrtL0yqq","database");
 		if(!$con){
     			die("La conexión ha fallado: " . mysqli_connect_error());}
 		//consulta a la base de datos para poder crear el id del nuevo primate

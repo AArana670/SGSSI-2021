@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$con = mysqli_connect("db","admin","test","database");
+	$con = mysqli_connect("db","monkeyDirector","fVNsjkNwyrtL0yqq","database");
 	if(!$con){
     		die("La conexión ha fallado: " . mysqli_connect_error());
     	}

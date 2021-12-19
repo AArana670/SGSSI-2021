@@ -47,7 +47,7 @@
 <?php //recogida de datos
 	if (isset($_POST["btnLogin"])){
 		//conexión a la base de datos
-        	$con = mysqli_connect("db","admin","test","database");
+        	$con = mysqli_connect("db","monkeyDirector","fVNsjkNwyrtL0yqq","database");
         	if(!$con){
     	    	die("La conexión ha fallado: " . mysqli_connect_error());
         	}   	
